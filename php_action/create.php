@@ -2,11 +2,17 @@
   require_once('MySql.php');
   require_once('Utilidades.php');
 
+  function clear($input)
+  {
+    $var = htmlspecialchars($input);
+    return $var;
+  }
+
   if(isset($_POST['btn-cadastrar'])){
-    $nome = $_POST['nome'];
-    $sobrenome = $_POST['sobrenome'];
-    $email = $_POST['email'];
-    $idade = $_POST['idade'];
+    $nome = clear($_POST['nome']);
+    $sobrenome = clear($_POST['sobrenome']);
+    $email = clear($_POST['email']);
+    $idade = clear($_POST['idade']);
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
       Utilidades::alerta("Insira um formato de email válido");
