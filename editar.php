@@ -16,12 +16,17 @@
 
       require_once('php_action/MySql.php');
       
+      function clear($input)
+      {
+        $var = htmlspecialchars($input);
+         return $var;
+      }
 
       if(isset($_POST['btn-editar'])){
-        $nome = $_POST['nome'];
-        $sobrenome = $_POST['sobrenome'];
-        $email = $_POST['email'];
-        $idade = $_POST['idade'];
+        $nome = clear($_POST['nome']);
+        $sobrenome = clear($_POST['sobrenome']);
+        $email = clear($_POST['email']);
+        $idade = clear($_POST['idade']);
         $id = $_GET['id'];
         
         //Para Capturar o email do id especifico
